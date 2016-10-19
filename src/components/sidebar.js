@@ -72,10 +72,16 @@ class Sidebar extends React.Component {
 
   renderToc(targetLocation) {
     let pathname = this.props.location && locationHelper(this.props.location.pathname);
-    pathname = pathname === locationHelper("/docs")
-      ? locationHelper("/docs/getting-started")
-      : pathname;
+    const gettingStartedLocation = locationHelper("/docs/getting-started");
+    const docsLocation = locationHelper("/docs");
     targetLocation = locationHelper(targetLocation);
+
+    pathname = pathname === docsLocation
+      ? gettingStartedLocation
+      : pathname;
+    targetLocation = targetLocation === docsLocation
+      ? gettingStartedLocation
+      : targetLocation;
 
     if (!pathname || (pathname !== targetLocation)) {
       return null;
@@ -90,6 +96,10 @@ class Sidebar extends React.Component {
   }
 
   render() {
+    // getting-started link should be active when at /docs in addition to /docs/getting-started
+    const pathname = this.props.location && locationHelper(this.props.location.pathname);
+    const gettingStartedClass = pathname === locationHelper("/docs") ? "is-active" : "";
+
     return (
       <nav className="Sidebar">
         <p className="Subheading u-noMargin">
@@ -98,7 +108,7 @@ class Sidebar extends React.Component {
         <div className="u-noMarginTop Grid Grid--gutters Grid--1of3--flex large-Grid--column">
           <div className="Grid-cell u-noMarginTop">
             <Link to="/docs/getting-started"
-              className="btn btn--dark u-displayBlock u-nowrap" activeClassName="is-active"
+              className={`btn btn--dark u-displayBlock u-nowrap ${gettingStartedClass}`} activeClassName="is-active"
             >
               Let’s Get Started
             </Link>
