@@ -17,7 +17,7 @@
   z-index: 1;
 }
 
-.Hero:before {
+/*.Hero:before {
   content: "";
   position: absolute;
   top: 0;
@@ -34,7 +34,7 @@
 
   opacity: 0.333;
   z-index: -1;
-}
+}*/
 
 @media (--large-viewport) {
   .Hero {

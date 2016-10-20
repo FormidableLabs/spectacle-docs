@@ -10,6 +10,11 @@ class Home extends React.Component {
     return (
       <TitleMeta title="Spectacle">
           <div className="Hero">
+          <video width="480" autoPlay loop>
+            <source src="./static/bg-demo.webm" type="video/webm" />
+            <source src="./static/bg-demo.mp4" type="video/mp4" />
+          </video>
+
             <h2 className="Hero-Heading u-noMargin">
               A <strong>React.js based</strong> library for creating <strong>
                 sleek presentations
