@@ -22,11 +22,10 @@ class Sidebar extends React.Component {
 
             return sibling && (
               <li key={id} className="Sidebar-toc-item">
-                <a
-                  href={`${basename}${targetLocation}#${sibling.anchor}`}
+                <Link
+                  to={`${basename}${targetLocation}#${sibling.anchor}`}
                   dangerouslySetInnerHTML={{__html: md.renderInline(sibling.content)}}
-                >
-                </a>
+                />
               </li>
             );
           })
