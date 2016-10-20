@@ -9,15 +9,15 @@ class Home extends React.Component {
   render() {
     return (
       <TitleMeta title="Spectacle">
-          <div className="Hero">
-          <video width="480" autoPlay loop>
+        <div className="Hero">
+          <video className="Hero-video" width="100%" autoPlay loop poster="./static/bg-still.png">
             <source src="./static/bg-demo.webm" type="video/webm" />
             <source src="./static/bg-demo.mp4" type="video/mp4" />
           </video>
 
             <h2 className="Hero-Heading u-noMargin">
               A <strong>React.js based</strong> library for creating <strong>
-                sleek presentations
+                <span className="Hero-Subheading">sleek presentations</span>
               </strong>
             </h2>
           </div>
@@ -26,7 +26,7 @@ class Home extends React.Component {
 
         <div className="Grid Grid--gutters">
           <p className="Grid-cell Grid-cell--autoSize">
-            <Link className="btn btn--dark u-nowrap" to="/docs">
+            <Link className="btn u-nowrap" to="/docs">
               Get Started with Spectacle
             </Link>
           </p>
