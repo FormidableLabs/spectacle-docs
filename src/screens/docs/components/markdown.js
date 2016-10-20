@@ -19,6 +19,7 @@ import { config } from "../../../components/config";
 class Markdown extends React.Component {
   constructor() {
     super();
+    this.onNodeClick = this.onNodeClick.bind(this);
     this.state = {
       renderedMd: ""
     };
@@ -27,7 +28,7 @@ class Markdown extends React.Component {
   componentDidMount() {
     Prism.highlightAll();
     if (this.refs.html) {
-      this.refs.html.addEventListener("click", this.onNodeClick.bind(this));
+      this.refs.html.addEventListener("click", this.onNodeClick);
     }
   }
 
@@ -38,7 +39,7 @@ class Markdown extends React.Component {
   componentWillMount() {
     this.renderMd(this.props);
     if (this.refs.html) {
-      this.refs.html.removeEventListener("click", this.onNodeClick.bind(this));
+      this.refs.html.removeEventListener("click", this.onNodeClick);
     }
   }
 
