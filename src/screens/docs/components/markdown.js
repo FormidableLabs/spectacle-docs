@@ -1,5 +1,6 @@
 import React from "react";
 import find from "lodash/find";
+import { withRouter } from "react-router";
 
 import MarkdownIt from "markdown-it";
 import markdownItTocAndAnchor from "markdown-it-toc-and-anchor";
@@ -25,6 +26,9 @@ class Markdown extends React.Component {
 
   componentDidMount() {
     Prism.highlightAll();
+    if (this.refs.html) {
+      this.refs.html.addEventListener("click", this.onNodeClick);
+    }
   }
 
   componentDidUpdate() { // is this the right one??
@@ -33,6 +37,31 @@ class Markdown extends React.Component {
 
   componentWillMount() {
     this.renderMd(this.props);
+    if (this.refs.html) {
+      this.refs.html.removeEventListener("click", this.onNodeClick);
+    }
+  }
+
+  onNodeClick = (e) => {
+    const node = e.target;
+
+    // Only accept links
+    if (node.tagName !== "A") {
+      return;
+    }
+
+    const href = node.getAttribute("href");
+
+    // that point to an internal page
+    if (href.indexOf("/") !== 0) {
+      return;
+    }
+
+    // Prevent browser default
+    e.preventDefault();
+
+    // let react router handle the transition
+    this.props.router.push(href);
   }
 
   componentWillReceiveProps(newProps) {
@@ -93,6 +122,7 @@ class Markdown extends React.Component {
   render() {
     return (
       <article
+        ref="html"
         className="Markdown"
         dangerouslySetInnerHTML={{
           __html: this.state.renderedMd
@@ -105,11 +135,12 @@ class Markdown extends React.Component {
 Markdown.propTypes = {
   location: React.PropTypes.object.isRequired,
   params: React.PropTypes.object,
-  updateTocArray: React.PropTypes.func.isRequired
+  updateTocArray: React.PropTypes.func.isRequired,
+  router: React.PropTypes.object
 };
 
 Markdown.defaultProps = {
   params: null
 };
 
-export default Markdown;
+export default withRouter(Markdown);
