@@ -14,7 +14,7 @@
 
   font-size: 1em;
 
-  z-index: 1;
+  z-index: 0;
 }
 
 @media (--medium-viewport) {
@@ -49,7 +49,7 @@
   font-size: 1.75em;
   letter-spacing: -0.03em;
   line-height: 1.25;
-  max-width: 14em;
+  /*max-width: 14em;*/
   text-transform: none;
   text-align: left;
 }

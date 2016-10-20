@@ -24,7 +24,7 @@
  */
 
 .btn {
-  background: var(--white);
+  background: transparent;
   border-color: var(--Button-border-color);
   border-style: solid;
   border-width: var(--Button-border-width);
@@ -78,7 +78,6 @@
 .btn:active {
   cursor: pointer;
   color: var(--Button-color);
-  background-color: color(var(--white) alpha(-30%));
   transition:
     color 0.3s 0.1s cubic-bezier(0.77, 0, 0.175, 1),
     background-color 250ms ease-in;
