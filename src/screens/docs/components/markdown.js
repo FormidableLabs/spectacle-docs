@@ -27,7 +27,7 @@ class Markdown extends React.Component {
   componentDidMount() {
     Prism.highlightAll();
     if (this.refs.html) {
-      this.refs.html.addEventListener("click", this.onNodeClick);
+      this.refs.html.addEventListener("click", this.onNodeClick.bind(this));
     }
   }
 
@@ -38,11 +38,11 @@ class Markdown extends React.Component {
   componentWillMount() {
     this.renderMd(this.props);
     if (this.refs.html) {
-      this.refs.html.removeEventListener("click", this.onNodeClick);
+      this.refs.html.removeEventListener("click", this.onNodeClick.bind(this));
     }
   }
 
-  onNodeClick = (e) => {
+  onNodeClick(e) {
     const node = e.target;
 
     // Only accept links
