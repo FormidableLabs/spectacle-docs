@@ -31,7 +31,7 @@ class Home extends React.Component {
             </Link>
           </p>
           <p className="Grid-cell">
-            <a className="btn btn--pink u-nowrap" href="http://stack.formidable.com/spectacle">
+            <a className="btn btn--pink u-nowrap" href="https://stack.formidable.com/spectacle">
               View Live Demo
             </a>
           </p>
