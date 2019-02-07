@@ -33,6 +33,7 @@ export const SidebarWrapper = styled.aside`
   font-family: "akkurat";
   background-image: url("../../static/svgs/pink-sidebar-background.svg");
   background-repeat: repeat-y;
+  background-size: 81%;
   min-height: 100vh;
   padding-top: 18rem;
   min-width: 26rem;
@@ -47,6 +48,7 @@ export const SidebarWrapper = styled.aside`
         : 'url("../../static/svgs/collapsed-sidebar-background.svg")'};
     min-width: ${props => (props.overlay ? "26rem" : "5rem")};
     width: ${props => (props.overlay ? "26rem" : "5rem")};
+    background-size: unset;
   }
 `;
 
