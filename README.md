@@ -9,7 +9,7 @@ Now built with react-static!
 To install and run the docs site locally:
 
 ```bash
-yarn install
+yarn
 yarn start
 ```
 Note that paths in local development are based on a root of "/" but be careful when defining relative and absolute paths
