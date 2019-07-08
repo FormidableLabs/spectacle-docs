@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   @media (min-width: 768px) {
     flex-direction: row;
     max-width: 116rem;
-    padding: ${props => (props.noPadding ? "0 8rem" : "8rem")}
+    padding: ${props => (props.noPadding ? "0" : "8rem")}
   }
   @media (max-width: 768px) {
     width: 65%;
