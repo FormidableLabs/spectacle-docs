@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { Link } from "react-static";
 
 export const Button = styled(Link)`
-  background: ${props => (props.light ? "white" : "#202020")};
-  color: ${props => (props.light ? "#202020" : "white")};
+  background: ${props => (props.light ? "white" : "#4e4e4e")};
+  color: ${props => (props.light ? "#4e4e4e" : "white")};
   display: block;
   font-size: 1.5rem;
   height: 4rem;
