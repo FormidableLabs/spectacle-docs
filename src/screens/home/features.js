@@ -18,6 +18,14 @@ const FeatureCard = styled.div`
   }
 `;
 
+const Image = styled.img`
+  box-shadow: -0.5rem 0.5rem 0 rgba(0, 0, 0, 0.5);
+  @media (min-width: 1024px) {
+    max-width: initial !important;
+    box-shadow: -1.5rem 1.5rem 0 rgba(0, 0, 0, 0.5);
+  }
+`
+
 class Features extends React.Component {
   render() {
     return (
@@ -25,7 +33,7 @@ class Features extends React.Component {
         <SectionTitle>Features</SectionTitle>
         {this.props.featureArray.map(feature => (
           <FeatureCard key={feature.title}>
-            <img src={feature.icon} />
+            <Image src={feature.icon} />
             <SecondaryTitle>{feature.title}</SecondaryTitle>
             <BodyCopy>{feature.description}</BodyCopy>
           </FeatureCard>
