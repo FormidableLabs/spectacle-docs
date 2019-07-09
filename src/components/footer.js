@@ -9,7 +9,8 @@ const Container = styled.footer`
   display: flex;
   flex-direction: column;
   height: auto;
-  padding: 9rem 0;
+  padding: 9rem 7rem;
+  align-items: center;
 `;
 
 const FooterDescription = styled.p`
@@ -19,23 +20,35 @@ const FooterDescription = styled.p`
   line-height: 1.6;
   margin: 2rem 0 0;
   max-width: 56rem;
-  min-width: 100%;
   text-align: left;
   @media (min-width: 768px) {
     font-size: 1.5rem;
     margin: 0;
     min-width: auto;
   }
+  & a {
+    color: white;
+    letter-spacing: 0.05em;
+    transition: opacity 0.4s;
+  }
+  & a:hover {
+    opacity: 0.7;
+  }
+  & a:visited {
+    color: white;
+  }
 `;
 
 const FooterLeft = styled.div`
+  display: flex;
   flex: 1;
-  padding: 0 4rem 0 0;
+  padding: 0;
   text-align: left;
 `;
 
 const FooterLogo = styled.img`
-  min-width: 21rem;
+  width: 7rem;
+  margin-right: 2.7rem;
 `;
 
 const FooterLinks = styled.ul`
@@ -53,6 +66,9 @@ const FooterLinks = styled.ul`
   }
   & a:hover {
     opacity: 0.7;
+  }
+  & a:visited {
+    color: white;
   }
 `;
 
@@ -80,8 +96,8 @@ export const Footer = () => (
         Formidable is a Seattle, Denver, and London-based engineering
         consultancy and open source software organization, specializing in
         React.js, React Native, GraphQL, Node.js, and the extended JavaScript
-        ecosystem. For more information about Formidable, please visit
-        formidable.com.
+        ecosystem. For more information about Formidable, please visit{" "}
+        <a href="https://www.formidable.com">formidable.com</a>.
       </FooterDescription>
     </Wrapper>
   </Container>
