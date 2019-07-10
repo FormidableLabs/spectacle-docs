@@ -21,8 +21,5 @@ export const Wrapper = styled.div`
     img {
       max-width: 240px;
     }
-    p {
-      text-align: left;
-    }
   }
 `;

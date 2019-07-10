@@ -11,7 +11,9 @@ export const BodyCopy = styled.p`
   @media (min-width: 768px) {
     font-size: 1.5rem;
   }
-  @media (min-width: 768px) {
-    text-align: center;
+  @media (max-width: 768px) {
+    p {
+      text-align: center;
+    }
   }
 `;
