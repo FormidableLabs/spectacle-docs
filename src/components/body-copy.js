@@ -13,5 +13,5 @@ export const BodyCopy = styled.p`
   }
   @media (min-width: 768px) {
     text-align: center;
-  }  
+  }
 `;

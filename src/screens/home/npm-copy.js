@@ -74,6 +74,6 @@ const NpmCopy = ({ text = "npm install spectacle" }) => {
 
 NpmCopy.propTypes = {
   text: PropTypes.string
-}
+};
 
 export default NpmCopy;

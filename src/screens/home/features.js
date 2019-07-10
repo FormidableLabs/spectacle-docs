@@ -24,7 +24,7 @@ const Image = styled.img`
     max-width: initial !important;
     box-shadow: -1.5rem 1.5rem 0 rgba(0, 0, 0, 0.5);
   }
-`
+`;
 
 class Features extends React.Component {
   render() {

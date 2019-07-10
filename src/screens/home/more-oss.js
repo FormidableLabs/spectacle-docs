@@ -19,7 +19,7 @@ const OuterWrapper = styled.div`
 
 const StyledSectionTitle = styled(SectionTitle)`
   color: #ffffff;
-`
+`;
 
 const OSSCard = styled.div`
   margin: 0 auto 4rem;
@@ -112,14 +112,16 @@ const StyledBodyCopy = styled(BodyCopy)`
   @media (min-width: 768px) {
     text-align: left;
   }
-`
+`;
 
 class MoreOSS extends React.Component {
   render() {
     return (
       <OuterWrapper>
         <SectionWrapper>
-          <StyledSectionTitle>More Open Source from Formidable</StyledSectionTitle>
+          <StyledSectionTitle>
+            More Open Source from Formidable
+          </StyledSectionTitle>
           {this.props.ossArray.map(card => (
             <OSSCard key={card.title}>
               <OSSLink href={card.link}>
