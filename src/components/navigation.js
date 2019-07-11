@@ -66,14 +66,15 @@ export const SidebarNavItem = styled(Link)`
 
   /* For selected state (need to break out of container) */
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 3rem;
-    background: ${({ isSelected }) => isSelected ? 'rgba(0, 0, 0, 0.2)' : 'transparent'};
-  }  
+    background: ${({ isSelected }) =>
+      isSelected ? "rgba(0, 0, 0, 0.2)" : "transparent"};
+  }
 `;
 
 export const SidebarNavSubItem = styled(Link)`

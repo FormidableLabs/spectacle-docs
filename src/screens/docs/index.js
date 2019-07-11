@@ -7,7 +7,7 @@ import Sidebar from "./sidebar";
 import burger from "../../static/svgs/burger.svg";
 import logoFormidableDark from "../../static/svgs/logo_formidable_dark.svg";
 import constants from "../../constants";
-import { Footer } from "../../components/footer"
+import { Footer } from "../../components/footer";
 
 const headerZIndex = 800;
 
@@ -94,7 +94,7 @@ const DocsTitle = styled.h2`
 
 const MainContent = styled.div`
   width: 100%;
-`
+`;
 
 class Docs extends React.Component {
   constructor(props) {
