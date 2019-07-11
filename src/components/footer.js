@@ -9,7 +9,7 @@ const Container = styled.footer`
   display: flex;
   flex-direction: column;
   height: auto;
-  padding: 9rem 7rem;
+  padding: 9rem 6rem;
   align-items: center;
 `;
 

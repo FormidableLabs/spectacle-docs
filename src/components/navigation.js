@@ -58,10 +58,22 @@ export const SidebarWrapper = styled.aside`
 
 export const SidebarNavItem = styled(Link)`
   color: white;
-  margin-left: 1rem;
-  margin-bottom: 1rem;
   font-size: 1.6rem;
   display: inline-block;
+  margin: 0.25rem 0;
+  padding: 0.25rem;
+  padding-left: 1.25rem;
+
+  /* For selected state (need to break out of container) */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3rem;
+    background: ${({ isSelected }) => isSelected ? 'rgba(0, 0, 0, 0.2)' : 'transparent'};
+  }  
 `;
 
 export const SidebarNavSubItem = styled(Link)`

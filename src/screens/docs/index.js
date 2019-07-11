@@ -7,6 +7,7 @@ import Sidebar from "./sidebar";
 import burger from "../../static/svgs/burger.svg";
 import logoFormidableDark from "../../static/svgs/logo_formidable_dark.svg";
 import constants from "../../constants";
+import { Footer } from "../../components/footer"
 
 const headerZIndex = 800;
 
@@ -23,7 +24,7 @@ const Wrapper = styled.div`
   height: 6rem;
   width: 100%;
   position: fixed;
-  left: 19rem;
+  left: 24rem;
   background: white;
   z-index: ${headerZIndex};
   padding-right: 3rem;
@@ -79,7 +80,7 @@ const DocsTitle = styled.h2`
   letter-spacing: 0.5rem;
   margin: 0;
   position: relative;
-  left: 10rem;
+  left: 4rem;
 
   @media (max-width: 768px) {
     font-size: 3rem;
@@ -90,6 +91,10 @@ const DocsTitle = styled.h2`
     left: 6.5rem;
   }
 `;
+
+const MainContent = styled.div`
+  width: 100%;
+`
 
 class Docs extends React.Component {
   constructor(props) {
@@ -126,7 +131,10 @@ class Docs extends React.Component {
           overlay={this.state.openSidebar}
           closeSidebar={this.closeSidebar}
         />
-        <Article />
+        <MainContent>
+          <Article />
+          <Footer />
+        </MainContent>
       </Container>
     );
   }

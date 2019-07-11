@@ -26,7 +26,7 @@ const HeroLogo = styled.img`
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 4rem 1rem 1rem 4rem;
+  margin: 4rem 0rem 1rem 28px;
   height: auto;
 
   @media (max-width: 768px) {
@@ -42,7 +42,8 @@ const SubContentWrapper = styled.div`
 
 const Wrapper = styled.div`
   display: inline-block;
-  margin-left: 2rem;
+  padding-left: 2rem;
+  position: relative;
 `;
 
 const CloseButton = styled.img`
@@ -72,6 +73,7 @@ class Sidebar extends React.Component {
           to={`/docs${item.path}`}
           replace
           key={item.title.split(" ").join("_")}
+          isSelected={currentPath}
         >
           {item.title}
         </SidebarNavItem>
