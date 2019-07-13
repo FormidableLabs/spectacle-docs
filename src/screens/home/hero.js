@@ -185,6 +185,8 @@ class Hero extends React.Component {
               <a
                 title="Issues"
                 href="https://www.github.com/FormidableLabs/spectacle/issues"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Issues
               </a>
@@ -193,6 +195,8 @@ class Hero extends React.Component {
               <a
                 title="GitHub"
                 href="https://github.com/FormidableLabs/spectacle"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 GitHub
               </a>
