@@ -126,7 +126,8 @@ const HeroDocsButton = styled(Link)`
   margin-left: 0rem;
   height: 4rem;
   font-size: 14px;
-  background-color: #ffffff;
+  background: #ffffff;
+  transition: background 0.4s;
   line-height: 4rem;
   text-align: center;
   text-transform: uppercase;
@@ -144,7 +145,7 @@ const HeroDocsButton = styled(Link)`
     width: 18rem;
   }
   &:hover {
-    background-color: #f6f6f6;
+    background: #fc6986;
   }
 `;
 

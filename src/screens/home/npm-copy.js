@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { BounceAnimation } from "../../components/bounce-animation";
 import styled from "styled-components";
 
 const HeroNPMWrapper = styled.div`
@@ -28,7 +29,8 @@ const HeroNPMCopy = styled.p`
 const HeroNPMButton = styled.button`
   width: 8rem;
   height: 4rem;
-  background-color: #ffffff;
+  background: #ffffff;
+  transition: background 0.4s;
   font-size: 14px;
   font-weight: normal;
   font-style: normal;
@@ -40,37 +42,59 @@ const HeroNPMButton = styled.button`
   text-transform: uppercase;
   cursor: copy;
   &:hover {
-    background-color: #f6f6f6;
+    background: #fc6986;
   }
 `;
 
-const NpmCopy = ({ text = "npm install spectacle" }) => {
-  const copyFallBack = () => {
+class NpmCopy extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      animating: false,
+      copied: false
+    };
+    this.handleCopy = this.copy.bind(this);
+  }
+
+  copyFallBack() {
     const copyTextArea = document.createElement("textArea");
-    copyTextArea.value = text;
+    copyTextArea.value = this.props.text;
     document.body.appendChild(copyTextArea);
     copyTextArea.focus();
     copyTextArea.select();
     document.execCommand("copy");
     copyTextArea.remove();
-  };
+  }
 
-  const handleCopy = e => {
+  copy(e) {
+    e.preventDefault();
+    this.setState({ animating: true, copied: true });
+    setTimeout(() => {
+      this.setState({ animating: false });
+    }, "100");
+    setTimeout(() => {
+      this.setState({ copied: false });
+    }, "3000");
     if (!navigator.clipboard) {
-      copyFallBack();
-      e.preventDefault();
+      this.copyFallBack();
     } else {
-      navigator.clipboard.writeText(text);
+      navigator.clipboard.writeText(this.props.text);
     }
-  };
+  }
 
-  return (
-    <HeroNPMWrapper>
-      <HeroNPMCopy>npm install spectacle</HeroNPMCopy>
-      <HeroNPMButton onClick={handleCopy}>copy</HeroNPMButton>
-    </HeroNPMWrapper>
-  );
-};
+  render() {
+    return (
+      <HeroNPMWrapper>
+        <HeroNPMCopy>npm install spectacle</HeroNPMCopy>
+        <HeroNPMButton onClick={this.handleCopy}>
+          <BounceAnimation bouncing={this.state.animating}>
+            {this.state.copied ? "Copied" : "Copy"}
+          </BounceAnimation>
+        </HeroNPMButton>
+      </HeroNPMWrapper>
+    );
+  }
+}
 
 NpmCopy.propTypes = {
   text: PropTypes.string
