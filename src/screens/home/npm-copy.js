@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import { BounceAnimation } from "../../components/bounce-animation";
 import styled from "styled-components";
 
@@ -56,16 +57,6 @@ class NpmCopy extends React.Component {
     this.handleCopy = this.copy.bind(this);
   }
 
-  copyFallBack() {
-    const copyTextArea = document.createElement("textArea");
-    copyTextArea.value = this.props.text;
-    document.body.appendChild(copyTextArea);
-    copyTextArea.focus();
-    copyTextArea.select();
-    document.execCommand("copy");
-    copyTextArea.remove();
-  }
-
   copy(e) {
     e.preventDefault();
     this.setState({ animating: true, copied: true });
@@ -75,23 +66,20 @@ class NpmCopy extends React.Component {
     setTimeout(() => {
       this.setState({ copied: false });
     }, "3000");
-    if (!navigator.clipboard) {
-      this.copyFallBack();
-    } else {
-      navigator.clipboard.writeText(this.props.text);
-    }
   }
 
   render() {
     return (
-      <HeroNPMWrapper>
-        <HeroNPMCopy>npm install spectacle</HeroNPMCopy>
-        <HeroNPMButton onClick={this.handleCopy}>
-          <BounceAnimation bouncing={this.state.animating}>
-            {this.state.copied ? "Copied" : "Copy"}
-          </BounceAnimation>
-        </HeroNPMButton>
-      </HeroNPMWrapper>
+      <CopyToClipboard text={this.props.text}>
+        <HeroNPMWrapper>
+          <HeroNPMCopy>{this.props.text}</HeroNPMCopy>
+          <HeroNPMButton onClick={this.handleCopy}>
+            <BounceAnimation bouncing={this.state.animating}>
+              {this.state.copied ? "Copied" : "Copy"}
+            </BounceAnimation>
+          </HeroNPMButton>
+        </HeroNPMWrapper>
+      </CopyToClipboard>
     );
   }
 }
