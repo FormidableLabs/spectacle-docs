@@ -62,11 +62,10 @@ const CloseButton = styled.img`
 class Sidebar extends React.Component {
   renderSidebarItem(item) {
     const { tocArray } = this.props;
-    const currentPath =
-      `/docs${item.path}` === this.props.history.location.pathname;
+    const location = this.props.history.location;
+    const currentPath = `/docs${item.path}` === location.pathname;
     // eslint-disable-next-line no-magic-numbers
     const subContent = tocArray.filter(toc => toc.level === 2);
-
     return (
       <Wrapper key={item.path}>
         <SidebarNavItem
@@ -79,17 +78,21 @@ class Sidebar extends React.Component {
         </SidebarNavItem>
         {currentPath && !!subContent.length && (
           <SubContentWrapper>
-            {subContent.map(sh => (
-              <SidebarNavSubItem
-                to={`#${sh.content
-                  .split(" ")
-                  .join("-")
-                  .toLowerCase()}`}
-                key={sh.content.split(" ").join("_")}
-              >
-                {sh.content}
-              </SidebarNavSubItem>
-            ))}
+            {subContent.map(sh => {
+              const slug = `#${sh.content
+                .split(" ")
+                .join("-")
+                .toLowerCase()}`;
+              return (
+                <SidebarNavSubItem
+                  to={slug}
+                  key={sh.content.split(" ").join("_")}
+                  isSelected={slug === location.hash}
+                >
+                  {sh.content}
+                </SidebarNavSubItem>
+              );
+            })}
           </SubContentWrapper>
         )}
       </Wrapper>

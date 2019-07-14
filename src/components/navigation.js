@@ -63,6 +63,9 @@ export const SidebarNavItem = styled(Link)`
   margin: 0.25rem 0;
   padding: 0.25rem;
   padding-left: 1.25rem;
+  &:hover {
+    color: rgba(200, 200, 200, 0.8);
+  }
 
   /* For selected state (need to break out of container) */
   &::after {
@@ -78,8 +81,24 @@ export const SidebarNavItem = styled(Link)`
 `;
 
 export const SidebarNavSubItem = styled(Link)`
-  color: white;
+  color:  ${({ isSelected }) =>
+    isSelected ? "rgba(255, 255, 255, 0.8)" : "white"};
+  }
   margin-left: 3rem;
   margin-top: 1rem;
   font-size: 1.4rem;
+  &:hover {
+    color: rgba(200, 200, 200, 0.8);
+  }
+
+  /* For selected state (need to break out of container) */
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2rem;
+    background: ${({ isSelected }) =>
+      isSelected ? "rgba(0, 0, 0, 0.2)" : "transparent"};
+  }
 `;
