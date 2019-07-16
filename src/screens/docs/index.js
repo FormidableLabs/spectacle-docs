@@ -133,7 +133,7 @@ class Docs extends React.Component {
         />
         <MainContent>
           <Article />
-          <Footer />
+          <Footer articleFooter />
         </MainContent>
       </Container>
     );

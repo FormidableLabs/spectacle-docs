@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Wrapper } from "./wrapper";
 import styled from "styled-components";
 import logoFormidableWhite from "../static/svgs/logo_formidable_white.png";
@@ -10,7 +11,10 @@ const Container = styled.footer`
   flex-direction: column;
   height: auto;
   padding: 9rem 6rem;
-  align-items: center;
+  @media (max-width: 768px) {
+    padding: 6rem 4rem 8rem 3.5rem;
+  }
+  align-items: left;
 `;
 
 const FooterDescription = styled.p`
@@ -72,9 +76,9 @@ const FooterLinks = styled.ul`
   }
 `;
 
-export const Footer = () => (
+export const Footer = props => (
   <Container>
-    <Wrapper noPadding>
+    <Wrapper noPadding noMargin={props.articleFooter}>
       <FooterLeft>
         <a href="https://formidable.com" title="Formidable">
           <FooterLogo src={logoFormidableWhite} alt="Formidable Logo" />
@@ -102,3 +106,7 @@ export const Footer = () => (
     </Wrapper>
   </Container>
 );
+
+Footer.propTypes = {
+  articleFooter: PropTypes.bool
+};
