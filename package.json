@@ -1,6 +1,6 @@
 {
   "name": "formidable-spectacle-docs",
-  "version": "5.0.10",
+  "version": "5.1.0",
   "description": "Documentation site for Spectacle",
   "main": "static.config.js",
   "license": "MIT",
