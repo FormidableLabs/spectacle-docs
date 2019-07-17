@@ -26,7 +26,7 @@ const HeroLogo = styled.img`
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 4rem 1rem 1rem 4rem;
+  margin: 4rem 0rem 1rem 28px;
   height: auto;
 
   @media (max-width: 768px) {
@@ -42,7 +42,8 @@ const SubContentWrapper = styled.div`
 
 const Wrapper = styled.div`
   display: inline-block;
-  margin-left: 2rem;
+  padding-left: 2rem;
+  position: relative;
 `;
 
 const CloseButton = styled.img`
@@ -61,33 +62,37 @@ const CloseButton = styled.img`
 class Sidebar extends React.Component {
   renderSidebarItem(item) {
     const { tocArray } = this.props;
-    const currentPath =
-      `/docs${item.path}` === this.props.history.location.pathname;
+    const location = this.props.history.location;
+    const currentPath = `/docs${item.path}` === location.pathname;
     // eslint-disable-next-line no-magic-numbers
     const subContent = tocArray.filter(toc => toc.level === 2);
-
     return (
       <Wrapper key={item.path}>
         <SidebarNavItem
           to={`/docs${item.path}`}
           replace
           key={item.title.split(" ").join("_")}
+          isSelected={currentPath}
         >
           {item.title}
         </SidebarNavItem>
         {currentPath && !!subContent.length && (
           <SubContentWrapper>
-            {subContent.map(sh => (
-              <SidebarNavSubItem
-                to={`#${sh.content
-                  .split(" ")
-                  .join("-")
-                  .toLowerCase()}`}
-                key={sh.content.split(" ").join("_")}
-              >
-                {sh.content}
-              </SidebarNavSubItem>
-            ))}
+            {subContent.map(sh => {
+              const slug = `#${sh.content
+                .split(" ")
+                .join("-")
+                .toLowerCase()}`;
+              return (
+                <SidebarNavSubItem
+                  to={slug}
+                  key={sh.content.split(" ").join("_")}
+                  isSelected={slug === location.hash}
+                >
+                  {sh.content}
+                </SidebarNavSubItem>
+              );
+            })}
           </SubContentWrapper>
         )}
       </Wrapper>

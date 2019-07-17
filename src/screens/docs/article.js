@@ -5,7 +5,8 @@ import { withRouteData } from "react-static";
 import { Markdown } from "../../components/markdown";
 
 const Container = styled.div`
-  max-width: 80rem;
+  box-sizing: content-box;
+  max-width: 70rem;
   min-height: 100vh;
   width: 100%;
   padding: 10rem 4rem 8rem;
