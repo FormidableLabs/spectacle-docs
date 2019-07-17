@@ -1,5 +1,9 @@
 Spectacle Docs
 
+## 5.1.0
+
+- [#89](https://github.com/FormidableLabs/spectacle-docs/pull/89) Design update
+
 ## 5.0.10
 
 - update `formidable-oss-badges`
