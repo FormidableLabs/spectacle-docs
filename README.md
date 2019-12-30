@@ -1,6 +1,6 @@
 # Spectacle documentation site
 
-[![Build Status](https://travis-ci.org/FormidableLabs/spectacle-docs.svg?branch=master)](https://travis-ci.org/FormidableLabs/spectacle-docs)
+[![Build Status](https://travis-ci.com/FormidableLabs/spectacle-docs.svg?branch=master)](https://travis-ci.com/FormidableLabs/spectacle-docs)
 
 Now built with react-static!
 
