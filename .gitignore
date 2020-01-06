@@ -26,5 +26,6 @@ coverage
 Procfile
 build
 package-lock.json
+yarn.lock
 
 test/screenshots
