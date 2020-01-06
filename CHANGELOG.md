@@ -1,5 +1,9 @@
 Spectacle Docs
 
+## 6.0.0
+
+- [#90](https://github.com/FormidableLabs/spectacle-docs/pull/90) Move all content over to the [main Spectacle repository](https://www.github.com/formidablelabs/spectacle), deprecate this repo
+
 ## 5.1.0
 
 - [#89](https://github.com/FormidableLabs/spectacle-docs/pull/89) Design update
